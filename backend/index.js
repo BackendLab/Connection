@@ -1,11 +1,12 @@
 const express = require("express");
 const app = express();
+require("dotenv").config();
 
 const port = process.env.PORT || 4000;
 
-app.get("/", (req, res) => {
-  res.send("Server is Running!");
-});
+// app.get("/", (req, res) => {
+//   res.send("Server is Running!");
+// });
 
 app.get("/jokes", (req, res) => {
   const jokes = [
@@ -35,6 +36,7 @@ app.get("/jokes", (req, res) => {
       content: "Too many bugs!",
     },
   ];
+  res.send(jokes);
 });
 
 app.listen(port, () => {
